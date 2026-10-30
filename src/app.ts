@@ -76,7 +76,6 @@ export class App {
   }
 
   private initializeUtilityRoutes() {
-
     this.app.openapi(
       createRoute({
         method: 'get',
