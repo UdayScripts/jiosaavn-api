@@ -81,12 +81,24 @@ const routeGroups: RouteGroup[] = [
     name: 'Search',
     count: 6,
     routes: [
-      { method: 'GET', path: '/api/search?query={query}', description: 'Unified search for songs, albums, artists, playlists' },
+      {
+        method: 'GET',
+        path: '/api/search?query={query}',
+        description: 'Unified search for songs, albums, artists, playlists'
+      },
       { method: 'GET', path: '/api/search/songs?query={query}', description: 'Search songs with pagination support' },
       { method: 'GET', path: '/api/search/albums?query={query}', description: 'Search music albums by title' },
       { method: 'GET', path: '/api/search/artists?query={query}', description: 'Search artists with details' },
-      { method: 'GET', path: '/api/search/playlists?query={query}', description: 'Search user and editorial playlists' },
-      { method: 'GET', path: '/api/search/top-query?query={query}', description: 'Retrieve top matching autocomplete query' }
+      {
+        method: 'GET',
+        path: '/api/search/playlists?query={query}',
+        description: 'Search user and editorial playlists'
+      },
+      {
+        method: 'GET',
+        path: '/api/search/top-query?query={query}',
+        description: 'Retrieve top matching autocomplete query'
+      }
     ]
   },
   {
@@ -96,14 +108,24 @@ const routeGroups: RouteGroup[] = [
       { method: 'GET', path: '/api/songs?ids={ids}', description: 'Retrieve multiple songs by comma-separated IDs' },
       { method: 'GET', path: '/api/songs?link={url}', description: 'Retrieve song details by JioSaavn song URL' },
       { method: 'GET', path: '/api/songs/{id}', description: 'Retrieve single song details with 320kbps streams' },
-      { method: 'GET', path: '/api/songs/{id}/suggestions', description: 'Retrieve recommended songs based on song ID' },
+      {
+        method: 'GET',
+        path: '/api/songs/{id}/suggestions',
+        description: 'Retrieve recommended songs based on song ID'
+      },
       { method: 'GET', path: '/api/songs/station', description: 'Create a continuous song radio station' }
     ]
   },
   {
     name: 'Album',
     count: 1,
-    routes: [{ method: 'GET', path: '/api/albums?id={id}', description: 'Retrieve album metadata, artist credits, and tracklist' }]
+    routes: [
+      {
+        method: 'GET',
+        path: '/api/albums?id={id}',
+        description: 'Retrieve album metadata, artist credits, and tracklist'
+      }
+    ]
   },
   {
     name: 'Artists',
@@ -114,7 +136,11 @@ const routeGroups: RouteGroup[] = [
       { method: 'GET', path: '/api/artists/{id}/albums', description: 'Retrieve all albums released by artist' },
       { method: 'GET', path: '/api/artists/{id}/songs', description: 'Retrieve top songs by artist with sorting' },
       { method: 'GET', path: '/api/artists/{id}/related', description: 'Retrieve similar and related artists' },
-      { method: 'GET', path: '/api/artists/by-name?name={name}', description: 'Search and retrieve artist by name query' }
+      {
+        method: 'GET',
+        path: '/api/artists/by-name?name={name}',
+        description: 'Search and retrieve artist by name query'
+      }
     ]
   },
   {
@@ -151,7 +177,13 @@ const routeGroups: RouteGroup[] = [
   {
     name: 'Playlists',
     count: 1,
-    routes: [{ method: 'GET', path: '/api/playlists?id={id}', description: 'Retrieve playlist details and songs by ID or link' }]
+    routes: [
+      {
+        method: 'GET',
+        path: '/api/playlists?id={id}',
+        description: 'Retrieve playlist details and songs by ID or link'
+      }
+    ]
   },
   {
     name: 'Podcasts',
@@ -1381,25 +1413,31 @@ Home.get('/', (c) => {
             <span class="response-status" id="console-status">200 OK • 16ms</span>
           </div>
           <div class="console-body">
-            <pre><code id="console-json">${escapeHtml(JSON.stringify({
-              success: true,
-              data: {
-                total: 1,
-                start: 0,
-                results: [
-                  {
-                    id: "0W6DtW_N",
-                    name: "Believer",
-                    type: "song",
-                    year: "2017",
-                    duration: 204,
-                    label: "Interscope Records",
-                    language: "english",
-                    downloadUrl: "320kbps"
+            <pre><code id="console-json">${escapeHtml(
+              JSON.stringify(
+                {
+                  success: true,
+                  data: {
+                    total: 1,
+                    start: 0,
+                    results: [
+                      {
+                        id: '0W6DtW_N',
+                        name: 'Believer',
+                        type: 'song',
+                        year: '2017',
+                        duration: 204,
+                        label: 'Interscope Records',
+                        language: 'english',
+                        downloadUrl: '320kbps'
+                      }
+                    ]
                   }
-                ]
-              }
-            }, null, 2))}</code></pre>
+                },
+                null,
+                2
+              )
+            )}</code></pre>
           </div>
           <div class="console-footer">
             <span>Powered by Hono & Edge Runtimes</span>

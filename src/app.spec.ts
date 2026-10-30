@@ -32,6 +32,3 @@ describe('App routes', () => {
     expect(body.data.appRateLimit).toBe('none')
   })
 })
-
-
-
